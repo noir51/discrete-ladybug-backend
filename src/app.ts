@@ -9,6 +9,7 @@ import logger from 'morgan';
 import path from 'path';
 
 import { environmentParametersValidation } from './services/env-params-validation';
+import { errors } from './services/errors';
 
 process.env.BASE_PATH = process.cwd();
 dotenv.config();
@@ -27,6 +28,8 @@ ladybug.use(cookieParser());
 ladybug.set('views', path.join(__dirname, 'views'));
 ladybug.set('view engine', 'ejs');
 
+ladybug.use('/', errors.errorsMiddleware);
+ladybug.use('/public', express.static('public'));
 ladybug.use(express.static(path.join(__dirname, 'public')));
 
 ladybug.listen(process.env.SERVER_PORT, () => {
