@@ -1,0 +1,33 @@
+{
+  "name": "discrete-ladybug-backend",
+  "version": "1.0.0",
+  "description": "Backend for Discrete Ladybug",
+  "main": "./dist/app.js",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "watch:server": "nodemon",
+    "debug": "DEBUG=express:* nodemon",
+    "dev": "DEBUG=express:* nodemon --require ts-node/register --project tsconfig.json"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/"
+    ],
+    "exec": "npx tsc && npm start",
+    "ext": "ts,js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noir51/discrete-ladybug-backend.git"
+  },
+  "keywords": [
+    "discrete",
+    "ladybug"
+  ],
+  "author": "Noir",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/noir51/discrete-ladybug-backend/issues"
+  },
+  "homepage": "https://github.com/noir51/discrete-ladybug-backend#readme"
+}
