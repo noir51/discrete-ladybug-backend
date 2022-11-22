@@ -1,0 +1,16 @@
+{
+    "local": {
+        "username": "ladybug",
+        "password": "Fxk4FMUwMu43j38B15Th",
+        "database": "discrete",
+        "host": "localhost",
+        "port": "5432",
+        "dialect": "postgres",
+        "operatorsAliases": false,
+        "define": {
+            "timestamps": true,
+            "paranoid": true,
+            "underscored": false
+        }
+    }
+}
