@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import logger from 'morgan';
 import path from 'path';
+import mountRoutes from './routes';
 
 import { environmentParametersValidation } from './services/env-params-validation';
 import { errors } from './services/errors';
@@ -27,6 +28,8 @@ ladybug.use(cookieParser());
 
 ladybug.set('views', path.join(__dirname, 'views'));
 ladybug.set('view engine', 'ejs');
+
+mountRoutes(ladybug);
 
 ladybug.use('/', errors.errorsMiddleware);
 ladybug.use('/public', express.static('public'));
