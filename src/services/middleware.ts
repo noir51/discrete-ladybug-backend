@@ -14,18 +14,11 @@ export const middleware = {
     },
 
     checkJwt: expressjwt({
-        secret: process.env.JWT_SECRET as string,
+        secret: `${process.env.JWT_SECRET}`,
         algorithms: ['RS512', 'HS512'],
     }).unless({
         path: [
-            '/api/general', '/api/general/',
-            '/api/language', '/api/language/',
-            '/api/auth/refresh-token', '/api/auth/refresh-token/',
-            '/api/auth/register', 'api/auth/register/',
-            '/api/auth/login', 'api/auth/login/',
-            '/api/auth/logout', 'api/auth/logout/',
-            '/api/auth/forgot-password', 'api/auth/forgot-password/',
-            '/api/user/confirm-new-email', '/api/user/confirm-new-email/'
+            /^\/user\/auth\/register\/*/
         ]
     }),
     
